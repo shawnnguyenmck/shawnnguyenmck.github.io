@@ -4,7 +4,10 @@ Have you ever wondered how distributed systems work? Do you want to learn how to
 
 This course will span 2 weeks, meet 3 times a week, 2 hours per day. At the end of each week, we'll build and deeply understand a component in a simulated distributed system with full end to end testing. The course components we will be building will be modeled after [FlyIO](https://fly.io/dist-sys/). 
 
-##Course Prerequisites:
+Sessions will be held in-person at the office. Join #distributed-systems-learning if you're interested
+in attending - schedules/details will be posted there.
+
+## *Course Prerequisites*:
 1. Golang programming knowledge
 
 2. Fundamental Systems Knowledge (networking, concurrency, filesystems, locks)

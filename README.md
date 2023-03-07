@@ -36,10 +36,12 @@ when to apply these systems to real world applications. Stay tuned!
 3. Intro to maelstrom workbench for learning distributed systems.
 
     a. Protocol for data transfer
-    b. Generating test workloads
-    c. Interpreting tests
-    d. Intro to maelstrom's Golang API for building nodes in a distributed system
 
+    b. Generating test workloads
+
+    c. Interpreting tests
+
+    d. Intro to maelstrom's Golang API for building nodes in a distributed system
 4. Building a simple echo server
 5. Building a global unique id generator
 

@@ -26,7 +26,7 @@ and understand the effects of network failures and message loss, and ways to mit
 ## *What happens after finishing this course?
 Congrats! You're a systems expert now (not). Jokes aside, this course is simply a brief intro to the fascinating
 but complex world of distributed systems. Hopefully this course has piqued your curiousity. After this
-course, we'll aim to continue this series once every 2 weeks, where we will actually dive into popular
+course, we'll aim to continue this series by meeting once every 2 weeks, where we will actually dive into popular
 distributed system recipes, tools, and frameworks used in production environments (e.g. Kafka, Consul, Vitess, Apache *insert popular project here*), and understand
 when to apply these systems to real world applications. Stay tuned!
 

@@ -1,10 +1,10 @@
-# *Intro to Distributed System Patterns*
+# *Intro to Distributed Systems*
 
 Have you ever wondered how distributed systems work? Do you want to learn how to write code that spans multiple systems reliably without data loss, while staying performant? Then say no more - we'll be running an crash course where we'll be building highly available distributed system components together in a local environment on our laptops.
 
-This course will span 2 weeks, meet 3 times a week, 2 hours per day. At the end of each week, we'll build and deeply understand a component in a simulated distributed system with full end to end testing. The course components we will be building will be modeled after [FlyIO](https://fly.io/dist-sys/). 
+This course will span 2 weeks, meet 3 times a week, 2 hours per day. At the end of each week, we'll build and deeply understand a component in a simulated distributed system with full end to end testing. The course components we will be building will be modeled after [FlyIO Gossip Columns](https://fly.io/dist-sys/). 
 
-Sessions will be held in-person at the office. Join #distributed-systems-learning if you're interested
+Sessions will be held in-person at the office. Join [Slack] #distributed-systems-learning if you're interested
 in attending - schedules/details will be posted there.
 
 ## *Course Prerequisites*:
@@ -25,7 +25,7 @@ on their local machine. Students will deeply learn how to evaluate and make trad
 and understand the effects of network failures and message loss, and ways to mitigate these scenarios.
 
 ## *What happens after finishing this course?
-Congrats! You're a systems expert now (not). Jokes aside, this course is simply an intro to the fascinating
+Congrats! You're a systems expert now (not). Jokes aside, this course is simply a brief intro to the fascinating
 but complex world of distributed systems. Hopefully this course has piqued your curiousity. After this
 course, we'll aim to continue this series once every 2 weeks, where we will actually dive into popular
 distributed system recipes, tools, and frameworks used in production environments, and understand

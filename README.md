@@ -4,12 +4,11 @@ Have you ever wondered how distributed systems work? Do you want to learn how to
 
 This course will span 2 weeks, meet 3 times a week, 2 hours per day. At the end of each week, we'll build and deeply understand a component in a simulated distributed system with full end to end testing. The course components we will be building will be modeled after [FlyIO Gossip Columns](https://fly.io/dist-sys/). 
 
-Sessions will be held in-person at the office. Join [Slack] #distributed-systems-learning if you're interested
+Sessions will be held in-person at the office. Join [slack] #distributed-systems-learning if you're interested
 in attending - schedules/details will be posted there.
 
 ## *Course Prerequisites*:
 1. Golang programming knowledge
-
 2. Fundamental Systems Knowledge (networking, concurrency, filesystems, locks)
 
 
@@ -43,7 +42,7 @@ when to apply these systems to real world applications. Stay tuned!
 5. Building a global unique id generator
 
 By the end of this week, students will learn how to intrepret data loss, latency, and availability,
-and also implement simple distributed systems in Golang.
+and also implement simple systems in Golang with maelstrom's Node API.
 
 ### *Week 2: Building a gossip-based broadcast system (used in p2p apps, service discovery, etc.)
 1. Implementing a single node broadcast system that's able to gossip messages across all nodes in a cluster.
@@ -51,4 +50,4 @@ and also implement simple distributed systems in Golang.
 3. Adding fault tolerance onto previous implementation - meaning it can work even with network partitions between cluster nodes.
 4. Implement a data efficient mechanism to reduce network traffic. We'll need to make tradeoffs between efficiency and latency.
 
-At the end of the second week,  we've learned how data can be replicated in a scalable, reliable, simple way, by implementing the gossip protocol.
+At the end of the second week, we've applied concepts around scalable, reliable, performant data replication, by implementing the gossip protocol.

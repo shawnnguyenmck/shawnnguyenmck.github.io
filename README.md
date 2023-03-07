@@ -21,7 +21,7 @@ in attending - schedules/details will be posted there.
 ## *What is unique about this course?
 Students will gain *hands on experience with distributed systems*. Students will participate in the design,
 implementation, assembly, configuration, benchmarking, and tests of a simulated distributed system
-on their local machine. Students will deeply learn how to evaluate and make trade-offs in distributed systems
+on their local machine. Students will learn how to evaluate and make trade-offs in distributed systems
 and understand the effects of network failures and message loss, and ways to mitigate these scenarios.
 
 ## *What happens after finishing this course?

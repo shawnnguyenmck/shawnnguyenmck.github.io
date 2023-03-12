@@ -1,0 +1,122 @@
+# -------------------------------------Week 1------------------------------------
+
+	## *************DAY 1*************
+	1. Intro to DS slides. 
+		-Walkthrough http://book.mixu.net/distsys/intro.html
+		-Understanding consistency, availability, and partition tolerance.
+
+	2. Intro to maelstrom workbench for learning distributed systems.
+
+	    a. Setup dev environment (pre-requisites e.g. golang, jdk/jre, graphviz)
+	    b. Protocol
+		-https://github.com/jepsen-io/maelstrom/blob/main/doc/protocol.md
+
+	    c. Intro to maelstrom's Golang API for building nodes in a distributed system
+
+		i. Building a simple echo server (30 mins)
+		-After completion: Can someone explain end to end how a node run occurs, and finally
+		how an echo response is handled?
+			-What is a Node? How do nodes interact with each other?
+			-Event handler, event loop, and handler invocation
+			-Message exchange (send, rpc, syncRPC, reply)
+
+	## *************DAY 2*************
+	1. Test Runs    
+
+		a. Generating test workloads
+		   -https://github.com/jepsen-io/maelstrom/blob/main/doc/results.md
+		b. Interpreting tests
+			./maelstrom serve
+			******LOC PRESENTS DEMO ON INTERPRETING GRAPHS*****
+		c. LOGS! Print logs, logs, logs! Logs make debugging easier.
+
+
+	2. Building a global unique id generator
+		a. Generate test workloads
+
+	3.Intro to concurrency (goroutines, waitgroups, mutexes, select loop), context
+	https://docs.google.com/presentation/d/1C7er9lmnCZgTw-WrsRkOEhTtvf5MK1zSMExa3iXW91A/present?slide=id.i0
+	Pause: Can someone explain the output of https://go.dev/play/p/FzONhs4-tae ?
+	Present this: https://gobyexample.com/select
+
+
+	## *************DAY 3*************
+	1. Intro to replication and consistency models:
+	http://book.mixu.net/distsys/replication.html
+
+	2. A broadcast system allows one to share a message with all nodes in the cluster. In Maelstrom, the broadcast workload lets you practice building broadcast system with a simple API:
+		a. A topology message informs the node of an (optional) network topology: a map of nodes to neighbors.
+		b. A broadcast request sends a message into the network.
+		c. A read request reads all the messages present on a single node.
+	Maelstrom checks broadcast systems by verifying that every broadcast message is (eventually) present on every node, and can tell you how long it takes for that to happen--as well as how many messages were required.
+
+		2a. Intro to broadcast challenge!
+			i. https://fly.io/dist-sys/3a/
+
+
+# -------------------------------------Week 2------------------------------------
+
+	## *************DAY 1*************
+	a. https://fly.io/dist-sys/3b/
+	Time to send our own 'broadcast' messages!
+	Notes: Use Node.IDs() to get all registered nodes. You dont need to use
+	the given topology.
+
+	Gotchas:
+	-Generally want to avoid long running things in RPC handlers so that it can respond quickly.
+
+	Pause: Can someone walk through their multi node broadcast implementation? What
+	does the default topology look like? Any thoughts on broadcasting to all nodes
+	vs a custom topology?
+
+	b. https://fly.io/dist-sys/3c/
+	Notes: During a network partition, an RPC call can hang indefinitely.
+	How do we handle this?
+
+
+	## *************DAY 2*************
+	a. https://fly.io/dist-sys/3d/
+	Now we need to think about performance - threading, locks, async processing, make
+	tradeoffs between consistency and performance.
+
+	The default topology arranges all nodes in a two-dimensional grid, like so:
+	n1--n2--n3
+	 |  |
+	n4--n5
+
+	Do we want to try to arrange our own topology to see how it can improve latency?
+	Hints: Round robin? B tree? Note we can change topology by cli e.g. `--topology line`
+	Topologies are found here - https://github.com/jepsen-io/maelstrom/blob/main/src/maelstrom/workload/broadcast.clj
+
+	Note: There are many implementations here. We often will make tradeoffs around the following:
+	1. Less messages per operation, but less data consistency
+	2. More messages per operation, with more data consistency
+
+	Consistency requires coordination
+	Coordinating comes (generally) with costs
+	More consistency is slower, more intuitive, but **LESS AVAIABLE**
+
+
+	## *************DAY 3*************
+	WRAP UP AND PARTY
+	a. https://fly.io/dist-sys/3e/
+	Let's try to achieve message efficiency. How do we reduce bandwidth usage?
+
+
+	What did we build?
+		Gossip Protocol
+		-Message broadcast system
+		-Useful for cluster management, service discovery, health, sensors, CDNs, etc
+		-Generally weak consistency / high availability
+		-Global broadcast
+			Send a message to every other node
+			O(nodes)
+		-Mesh networks (used where reliability is a concern, but has redundant transmission)
+			Epidemic models
+			Relay to your neighbors
+			Propagation times on the order of max-free-path
+		-Spanning trees (root node is single point of failure)
+			Instead of a mesh, use a tree
+			Hop up to a connector node which relays to other connector nodes
+			Reduces superfluous messages
+			Reduces latency

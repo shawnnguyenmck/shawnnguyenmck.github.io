@@ -69,6 +69,8 @@
 	does the default topology look like? Any thoughts on broadcasting to all nodes
 	vs a custom topology?
 
+	Which topology runs the fastest, and the slowest and why?
+
 	b. https://fly.io/dist-sys/3c/
 	Notes: During a network partition, an RPC call can hang indefinitely.
 	How do we handle this?
@@ -94,7 +96,7 @@
 
 	Consistency requires coordination
 	Coordinating comes (generally) with costs
-	More consistency is slower, more intuitive, but **LESS AVAIABLE**
+	More consistency is slower, more intuitive, but **LESS AVAILABLE**
 
 
 	## *************DAY 3*************
